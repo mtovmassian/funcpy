@@ -1,9 +1,9 @@
-def slyce(start, end, array):
-    def _slyce(start, end, array):
+def slice(start, end, array):
+    def _slice(start, end, array):
         end -= 1
         if end < start:
             return []
-        res = _slyce(start, end, array)
+        res = _slice(start, end, array)
         res.append(array[end])
         return res
 
@@ -14,11 +14,11 @@ def slyce(start, end, array):
         start += end
     elif start >= 0 and end == 0:
         end = len(array)
-    return _slyce(start, end, array)
+    return _slice(start, end, array)
 
 
 if __name__ == '__main__':
     array = ['a', 'b', 'c', 'd', 'e', 'f']
-    print(slyce(0, 2, array))
-    print(slyce(2, 4, array))
-    print(slyce(-2, 0, array))
+    print(slice(0, 2, array))
+    print(slice(2, 4, array))
+    print(slice(-2, 0, array))
