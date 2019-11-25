@@ -1,7 +1,7 @@
 def fibonnaci(number):
-    if number < 2:
-        return number
-    return number + fibonnaci(number - 1)
+    if number <= 1:
+        return 1
+    return fibonnaci(number - 2) + fibonnaci(number - 1)
 
 
 if __name__ == '__main__':
