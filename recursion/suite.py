@@ -1,9 +1,11 @@
 from typing import Callable
 
-def suite(head: int, repetition: int, increment: Callable, sink = []):
-    if head > repetition: return sink
-    sink.append(increment(head))
-    return suite(head + 1, repetition, increment, sink)
+def suite(head: int, repetition: int, increment: Callable):
+    if head > repetition: return []
+    return [
+        increment(head),
+        *suite(head + 1, repetition, increment)
+    ]
 
 if __name__ == "__main__":
     print(suite(0, 3, lambda x: x * 90))
